@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ImageView.Views.HorizontalImageView"
+             xmlns:pinch="clr-namespace:Xamarin.Forms.PinchZoomImage;assembly=Xamarin.Forms.PinchZoomImage" 
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             Title="Horizontal">
+    <ContentPage.Content>
+        <StackLayout Padding="10" BackgroundColor="Gray">
+            <CarouselView ItemsSource="{Binding Images}">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <pinch:PinchZoom VerticalOptions="CenterAndExpand"> 
+                                <pinch:PinchZoom.Content>
+                                    <ffimageloading:CachedImage Source="{Binding Source}"/>
+                                </pinch:PinchZoom.Content>
+                            </pinch:PinchZoom>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
